@@ -24,8 +24,7 @@ import {computed, ref} from "vue";
 import SubmitButton from "./results/SubmitButton.vue";
 import FileInput from "./input/FileInput.vue";
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
-import Content from "./Content.vue";
-import FilterDropdown from "./FilterDropdown.vue";
+import Content from "./input/Content.vue";
 import TableHeader from "./input/TableHeader.vue";
 import {DEFAULT_CBC} from "../lib/constants/CBC_Constants.js";
 import {useCbcStore} from "../stores/CbcStore.js";
