@@ -21,12 +21,12 @@
 
 <script setup>
 import { Bar } from 'vue-chartjs'
-import {chartOptions} from "../lib/constants/ChartOptions.js";
+import {chartOptions} from "../../lib/constants/ChartOptions.js";
 import {computed, onUpdated, ref, onBeforeUpdate} from "vue";
-import {editableCbcKeys} from "../lib/TableGrid.js"
-import Details from "./icons/Details.vue";
-import {useCbcStore} from "../stores/CbcStore.js";
-import {router} from "../router/Router.js";
+import {editableCbcKeys} from "../../lib/TableGrid.js"
+import Details from "./../icons/Details.vue";
+import {useCbcStore} from "../../stores/CbcStore.js";
+import {router} from "../../router/Router.js";
 
 const options = chartOptions
 
@@ -71,7 +71,7 @@ function updateViewPort(){
 }
 
 async function handleDetails(cbc){
-	await router.push(`/sbc_frontend/details/${cbc.id}`)
+	await router.push(`/frontend/details/${cbc.id}`)
 }
 
 onBeforeUpdate(()=>{
