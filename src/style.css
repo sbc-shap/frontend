@@ -39,6 +39,22 @@ button, label, .grid-item{
   gap: 1rem;
 }
 
+/*
+.grid-container {
+  display: flex;
+}
+*/
+
+/*.grid-container>div {
+  min-width: 7%;
+}*/
+
+.grid-container-small {
+  display: grid;
+  grid-template-columns: repeat(13, minmax(0, 1fr));
+  gap: 1rem;
+}
+
 input{
   @apply min-w-20 bg-white
 }
