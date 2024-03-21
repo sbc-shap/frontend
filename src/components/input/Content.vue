@@ -1,6 +1,6 @@
 <template>
-  <tbody class="custom-content-height overflow-y-auto w-full overflow-x-auto pb-2 pt-2 block" @scroll="updateViewPort">
-    <tr class="min-w-full grid leading-6 pt-2 gap-4 grid-container" :class="''"
+  <tbody class="w-full overflow-x-auto pb-2 pt-2 block" @scroll="updateViewPort">
+    <tr class="grid leading-6 pt-2 gap-4 grid-container" :class="''"
          v-for="(cbc, idx) in filteredCbcs" :id="idx">
       <td v-for="cbcKey in editableCbcKeys" class="flex justify-center items-center flex-col h-fit">
           <input
@@ -48,7 +48,6 @@ const filteredCbcs = computed(() =>{
 function getLink(id){
 	return `sbc_frontend/details/${id}`
 }
-
 
 function isInViewport(element) {
   const rect = element.getBoundingClientRect();
