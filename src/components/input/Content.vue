@@ -1,20 +1,26 @@
 <template>
-  <tbody class="w-full overflow-x-auto pb-2 pt-2 block" @scroll="updateViewPort">
-    <tr class="grid leading-6 pt-2 gap-4 grid-container" :class="''"
-         v-for="(cbc, idx) in filteredCbcs" :id="idx">
-      <td v-for="cbcKey in editableCbcKeys" class="flex justify-center items-center flex-col h-fit">
-          <input
-              class="p-2 rounded-md w-full w-32 text-right text-black" :value="cbc[cbcKey]"
-              :type="type(cbcKey)"
-              :placeholder="cbcKey"
-              @input="event => valueInput(event, cbc, cbcKey)" @change="event => valueInput(event, cbc, cbcKey)"/>
-      </td>
-			<td class="non-editable">{{cbc.groundTruth === undefined ? 'Unknown' : cbc.groundTruth}}</td>
-			<td class="non-editable">{{cbc.confidence === undefined ? 'Unclassified' : cbc.confidence}}</td>
-			<td class="non-editable">{{cbc.pred === undefined ? 'Unclassified' : cbc.pred }}</td>
-			<td><Details :fun="()=>handleDetails(cbc)"/></td>
-    </tr>
-  </tbody>
+	<div class="w-full overflow-x-auto max-h-[80%]" @scroll="updateViewPort">
+		<table class="table-auto min-w-[1300px] h-full relative">
+			<TableHeader :is-detail-page="false"/>
+			<tbody class="w-full overflow-x-auto pb-2 pt-2 block" >
+			<tr class="grid leading-6 pt-2 gap-4 grid-container" :class="''"
+					v-for="(cbc, idx) in filteredCbcs" :id="idx">
+				<td v-for="cbcKey in editableCbcKeys" class="flex justify-center items-center flex-col h-fit">
+					<input
+						class="p-2 rounded-md w-full w-32 text-right text-black" :value="cbc[cbcKey]"
+						:type="type(cbcKey)"
+						:placeholder="cbcKey"
+						@input="event => valueInput(event, cbc, cbcKey)" @change="event => valueInput(event, cbc, cbcKey)"/>
+				</td>
+				<td class="non-editable w-full">{{cbc.groundTruth === undefined ? 'Unknown' : cbc.groundTruth}}</td>
+				<td class="non-editable w-full">{{cbc.confidence === undefined ? 'Unclassified' : cbc.confidence}}</td>
+				<td class="non-editable w-full">{{cbc.pred === undefined ? 'Unclassified' : cbc.pred }}</td>
+				<td><Details :fun="()=>handleDetails(cbc)"/></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+
 </template>
 
 <script setup>
@@ -25,6 +31,7 @@ import {editableCbcKeys} from "../../lib/TableGrid.js"
 import Details from "./../icons/Details.vue";
 import {useCbcStore} from "../../stores/CbcStore.js";
 import {router} from "../../router/Router.js";
+import TableHeader from "./TableHeader.vue";
 
 const options = chartOptions
 
@@ -82,11 +89,6 @@ onUpdated(()=>{
 </script>
 
 <style scoped>
-
-
-.non-editable{
-	@apply p-2 bg-gray-600 rounded-md w-full text-center select-none
-}
 
 .custom-content-height{
 	max-height: calc(100% - 156px - 56px - 144px);

@@ -27,7 +27,7 @@
 				</tbody>
 			</table>
 		</div>
-		<SubmitButton :fun="submitDetails" class="pb-2"/>
+		<div class="flex justify-center pt-4"><SubmitButton :fun="submitDetails" class="pb-2"/></div>
 	</div>
 
 </template>
