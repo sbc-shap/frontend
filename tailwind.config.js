@@ -23,6 +23,5 @@ export default {
     }
   },
   plugins: [
-    require('@vueform/slider/tailwind'),
   ],
 }
