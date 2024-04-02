@@ -1,6 +1,8 @@
 <template>
-			<button @click="fun">
-				{{isLoading ? "Loading..." : "Submit"}}</button>
+    <div class="flex justify-center w-full mt-4">
+        <button class="rounded-md shadow-md hover:scale-105 p-4 bg-sky-700 cursor-pointer hover:bg-sky-600" @click="fun">
+          {{isLoading ? "Loading..." : "Submit"}}</button>
+    </div>
 </template>
 
 <script setup>

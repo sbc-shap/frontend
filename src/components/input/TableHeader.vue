@@ -1,36 +1,35 @@
 <template>
-	<thead class="w-full 2xl:max-h-[114px] block top-0 sticky" style="background-color: #242424">
-	<tr class="grid-container">
-		<th v-for="cbcKey in editableCbcKeys" class="grid-item">
+	<div class="grid-container">
+		<div v-for="cbcKey in editableCbcKeys" class="grid-item">
 			<div class="header-item pt-2">
 				<p class="text-center">{{cbcKey}}</p>
 				<Filter v-if="!isDetailPage" :fun="()=> filterCbcKeyFunction(cbcKey)" :classes="getFilterClass(cbcKey)"/>
 				<Help :fun="() => helpCbcKeyFunction(cbcKey)"/>
 			</div>
 			<p class="text-center">({{unit(cbcKey)}})</p>
-		</th>
-		<th class="grid-item" >
+		</div>
+		<div class="grid-item" >
 			<div class="header-item">
 				Ground-truth
 				<Filter v-if="!isDetailPage" :fun="()=> filterCbcKeyFunction('groundTruth')" :classes="getFilterClass('groundTruth')"/>
 				<Help :fun="() => helpCbcKeyFunction('groundTruth')"/>
 			</div>
-		</th>
-		<th class="grid-item" >
+		</div>
+		<div class="grid-item" >
 			<div class="header-item">
 				Confidence
 				<Filter v-if="!isDetailPage" :fun="()=> filterCbcKeyFunction('confidence')" :classes="getFilterClass('confidence')"/>
 				<Help :fun="() => helpCbcKeyFunction('confidence')"/>
 			</div>
-		</th>
-		<th class="grid-item">
+		</div>
+		<div class="grid-item">
 			<div class="header-item">
 				Prediction
 				<Filter v-if="!isDetailPage" :fun="()=> filterCbcKeyFunction('pred')" :classes="getFilterClass('pred')"/>
 				<Help :fun="() => helpCbcKeyFunction('pred')"/>
 			</div>
-		</th>
-		<th class="header-item" >
+		</div>
+		<div class="header-item" >
 			<div class="flex gap-2" v-if="!isDetailPage">
 				Details
 				<Help :fun="() => helpCbcKeyFunction('details')"/>
@@ -39,9 +38,8 @@
 				Classifier
 				<Help :fun="() => helpCbcKeyFunction('classifier')"/>
 			</div>
-		</th>
-	</tr>
-	</thead>
+		</div>
+	</div>
 </template>
 
 <script setup lang="js">
@@ -90,7 +88,7 @@ function getFilterClass(cbcKey){
 }
 
 .header-item{
-	@apply flex gap-2 flex-col 2xl:flex-row justify-center items-center
+	@apply flex gap-2 flex-col 2xl:flex-row justify-center
 }
 
 </style>
